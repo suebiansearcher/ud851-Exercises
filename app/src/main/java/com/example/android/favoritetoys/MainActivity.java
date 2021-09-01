@@ -16,8 +16,10 @@
 package com.example.android.favoritetoys;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
          * Using findViewById, we get a reference to our TextView from xml. This allows us to
          * do things like set the text of the TextView.
          */
-        mToysListTextView = (TextView) findViewById(R.id.tv_toy_names);
+        mToysListTextView =  findViewById(R.id.tv_toy_names);
 
         /*
          * This String array contains names of classic toys. After all, these are toy apps. We
