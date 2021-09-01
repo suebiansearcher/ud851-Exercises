@@ -5,7 +5,7 @@ android {
 
     defaultConfig {
         applicationId "com.android.example.favoritetoys"
-        minSdkVersion 24
+        minSdkVersion 10
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
