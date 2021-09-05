@@ -17,7 +17,7 @@ package com.example.android.recyclerview;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 
 /**
  * ColorUtils is a class with one method, used to color the ViewHolders in
