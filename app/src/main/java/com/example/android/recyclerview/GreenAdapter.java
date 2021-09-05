@@ -16,7 +16,7 @@
 package com.example.android.recyclerview;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,7 +40,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
     private static final String TAG = GreenAdapter.class.getSimpleName();
 
     // TODO (3) Create a final private ListItemClickListener called mOnClickListener
-
+    final private  ListItemClickListener mOnClickListener;
     /*
      * The number of ViewHolders that have been created. Typically, you can figure out how many
      * there should be by determining how many list items fit on your screen at once and add 2 to 4
@@ -88,6 +88,10 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
     private int mNumberItems;
 
     // TODO (1) Add an interface called ListItemClickListener
+    public interface ListItemClickListener{
+        void onListItemClick(int clickedItemIndex);
+
+    }
     // TODO (2) Within that interface, define a void method called onListItemClick that takes an int as a parameter
 
     // TODO (4) Add a ListItemClickListener as a parameter to the constructor and store it in mOnClickListener
@@ -97,9 +101,10 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
      *
      * @param numberOfItems Number of items to display in list
      */
-    public GreenAdapter(int numberOfItems) {
+    public GreenAdapter(int numberOfItems, ListItemClickListener listener) {
         mNumberItems = numberOfItems;
         viewHolderCount = 0;
+        mOnClickListener = listener;
     }
 
     /**
@@ -110,7 +115,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
      * @param viewGroup The ViewGroup that these ViewHolders are contained within.
      * @param viewType  If your RecyclerView has more than one type of item (which ours doesn't) you
      *                  can use this viewType integer to provide a different layout. See
-     *                  {@link android.support.v7.widget.RecyclerView.Adapter#getItemViewType(int)}
+     *                  {@link RecyclerView.Adapter#getItemViewType(int)}
      *                  for more details.
      * @return A new NumberViewHolder that holds the View for each list item
      */
@@ -167,12 +172,14 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
     /**
      * Cache of the children views for a list item.
      */
-    class NumberViewHolder extends RecyclerView.ViewHolder {
+    class NumberViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
 
         // Will display the position in the list, ie 0 through getItemCount() - 1
         TextView listItemNumberView;
         // Will display which ViewHolder is displaying this data
         TextView viewHolderIndex;
+
 
         /**
          * Constructor for our ViewHolder. Within this constructor, we get a reference to our
@@ -187,6 +194,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
             listItemNumberView = (TextView) itemView.findViewById(R.id.tv_item_number);
             viewHolderIndex = (TextView) itemView.findViewById(R.id.tv_view_holder_instance);
             // TODO (7) Call setOnClickListener on the View passed into the constructor (use 'this' as the OnClickListener)
+            itemView.setOnClickListener(this);
         }
 
         /**
@@ -199,5 +207,10 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
         }
 
         // TODO (6) Override onClick, passing the clicked item's position (getAdapterPosition()) to mOnClickListener via its onListItemClick method
+        @Override
+        public void onClick(View view) {
+            int clickedPosition = getBindingAdapterPosition();
+            mOnClickListener.onListItemClick(clickedPosition);
+        }
     }
 }
