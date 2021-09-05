@@ -15,4 +15,5 @@
 -->
 <resources>
     <string name="app_name">RecyclerView</string>
+    <string name="view_holder_index">ViewHolder index: %1$d</string>
 </resources>
