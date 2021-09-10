@@ -16,8 +16,9 @@
 package com.example.android.explicitintent;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -62,12 +63,12 @@ public class MainActivity extends AppCompatActivity {
                 Context context = MainActivity.this;
 
                 // TODO (1) Store ChildActivity.class in a Class object called destinationActivity
-
+                Class destinationActivity = ChildActivity.class;
                 // TODO (2) Create an Intent to start ChildActivity
-
+                Intent childIntent = new Intent(context, destinationActivity);
                 // TODO (3) Replace the Toast with code to start ChildActivity
                 String message = "Button clicked!\nTODO: Start a new Activity and pass some data.";
-                Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+                startActivity(childIntent);
 
             }
         });
