@@ -16,7 +16,8 @@
         <activity
             android:name=".SettingsActivity"
             android:exported="true" />
-        <activity android:name=".VisualizerActivity">
+        <activity android:name=".VisualizerActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

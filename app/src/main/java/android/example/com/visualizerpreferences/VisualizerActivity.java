@@ -49,7 +49,7 @@ public class VisualizerActivity extends AppCompatActivity {
 
     private void defaultSetup() {
         mVisualizerView.setShowBass(true);
-        mVisualizerView.setShowMid(true);
+        mVisualizerView.setShowMid(false);
         mVisualizerView.setShowTreble(true);
         mVisualizerView.setMinSizeScale(1);
         mVisualizerView.setColor(getString(R.string.pref_color_red_value));
@@ -100,7 +100,7 @@ public class VisualizerActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String permissions[], @NonNull int[] grantResults) {
-        
+
         switch (requestCode) {
             case MY_PERMISSION_RECORD_AUDIO_REQUEST_CODE: {
                 // If request is cancelled, the result arrays are empty.
