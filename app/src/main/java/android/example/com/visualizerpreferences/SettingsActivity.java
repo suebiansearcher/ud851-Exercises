@@ -16,10 +16,13 @@ package android.example.com.visualizerpreferences;
  * limitations under the License.
  */
 
-import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.app.NavUtils;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceFragmentCompat;
+
 import android.os.Bundle;
+import android.preference.PreferenceFragment;
 import android.view.MenuItem;
 
 public class SettingsActivity extends AppCompatActivity {
@@ -46,13 +49,21 @@ public class SettingsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    // TODO (2) Create a class called SettingsFragment that extends PreferenceFragmentCompat
-    // TODO (3) In res->xml create a file called pref_visualizer
-    // TODO (4) In pref_visualizer create a preference screen containing a single check box preference
+    // COMPLETED (2) Create a class called SettingsFragment that extends PreferenceFragmentCompat
+    // COMPLETED (3) In res->xml create a file called pref_visualizer
+    // COMPLETED (4) In pref_visualizer create a preference screen containing a single check box preference
     // This check box preference should have a default value of true, the key 'show_bass', a
     // summaryOff of Hidden, a summaryOn of Shown and a title of 'Show Bass'
+    public class SettingsFragment extends PreferenceFragmentCompat {
 
-    // TODO (5) In SettingsFragment's onCreatePreferences method add the preference file using the
+        @Override
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            addPreferencesFromResource(R.xml.pref_visalizer);
+        }
+    }
+
+
+    // COMPLETED (5) In SettingsFragment's onCreatePreferences method add the preference file using the
     // addPreferencesFromResource method
 
 
