@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements
          * one doesn't exist, we tell the LoaderManager to create one. If one does exist, we tell
          * the LoaderManager to restart it.
          */
-        LoaderManager loaderManager = getSupportLoaderManager();
+        LoaderManager loaderManager = LoaderManager.getInstance(this);
         Loader<String> githubSearchLoader = loaderManager.getLoader(GITHUB_SEARCH_LOADER);
         if (githubSearchLoader == null) {
             loaderManager.initLoader(GITHUB_SEARCH_LOADER, queryBundle, this);
