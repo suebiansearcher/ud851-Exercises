@@ -15,9 +15,14 @@
  */
 package com.example.android.asynctaskloader;
 
+
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.PersistableBundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,8 +38,10 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
 
     // TODO (1) Create a static final key to store the query's URL
+    private static final String SEARCH_QUERY_URL_EXTRA = "query";
 
     // TODO (2) Create a static final key to store the search's raw JSON
+    private static final String SEARCH_RESULTS_RAW_JSON = "results";
 
     private EditText mSearchBoxEditText;
 
@@ -50,16 +57,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mSearchBoxEditText = (EditText) findViewById(R.id.et_search_box);
+        mSearchBoxEditText = findViewById(R.id.et_search_box);
 
-        mUrlDisplayTextView = (TextView) findViewById(R.id.tv_url_display);
-        mSearchResultsTextView = (TextView) findViewById(R.id.tv_github_search_results_json);
+        mUrlDisplayTextView = findViewById(R.id.tv_url_display);
+        mSearchResultsTextView = findViewById(R.id.tv_github_search_results_json);
 
-        mErrorMessageDisplay = (TextView) findViewById(R.id.tv_error_message_display);
+        mErrorMessageDisplay = findViewById(R.id.tv_error_message_display);
 
-        mLoadingIndicator = (ProgressBar) findViewById(R.id.pb_loading_indicator);
+        mLoadingIndicator = findViewById(R.id.pb_loading_indicator);
 
         // TODO (9) If the savedInstanceState bundle is not null, set the text of the URL and search results TextView respectively
+        if(savedInstanceState != null){
+            String queryURL = savedInstanceState.getString(SEARCH_QUERY_URL_EXTRA);
+
+            String jsonData = savedInstanceState.getString(SEARCH_RESULTS_RAW_JSON);
+
+            mUrlDisplayTextView.setText(queryURL);
+            mSearchResultsTextView.setText(jsonData);
+        }
     }
 
     /**
@@ -160,4 +175,21 @@ public class MainActivity extends AppCompatActivity {
 
     // TODO (7) Put the contents of the TextView that contains our raw JSON search results into a variable
     // TODO (8) Using the key for the raw JSON search results, put the search results into the outState Bundle
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+
+        String queryURL = mUrlDisplayTextView.getText().toString();
+        outState.putString(SEARCH_QUERY_URL_EXTRA, queryURL);
+
+        String rawJsonSearchResults = mSearchResultsTextView.getText().toString();
+        outState.putString(SEARCH_RESULTS_RAW_JSON, rawJsonSearchResults);
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        
+    }
 }
