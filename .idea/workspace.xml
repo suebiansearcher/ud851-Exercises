@@ -13,18 +13,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb4dd0d1-ac82-4530-92bf-3a8223290598" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/android/example/com/visualizerpreferences/AudioVisuals/TrailedShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/android/example/com/visualizerpreferences/AudioVisuals/TrailedShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/android/example/com/visualizerpreferences/AudioVisuals/VisualizerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/android/example/com/visualizerpreferences/AudioVisuals/VisualizerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/android/example/com/visualizerpreferences/SettingsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/android/example/com/visualizerpreferences/SettingsActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/android/example/com/visualizerpreferences/VisualizerActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/android/example/com/visualizerpreferences/VisualizerActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-    </list>
+    <list default="true" id="cb4dd0d1-ac82-4530-92bf-3a8223290598" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
